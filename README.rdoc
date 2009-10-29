@@ -8,15 +8,19 @@ A ruby gem implementation of the Topsy API
 
 == FEATURES:
 
+<p>
 rtopsy won't do your laundry, but it will do this:
-1. Topsy::Base.authorinfo('barackobama')
-2. Topsy::Base.authorsearch('programming','a')
-Topsy::Base.authorsearch('programming')
-3. Topsy::Base.linkposts('barackobama',page_number,per_page)
-Topsy::Base.linkposts('barackobama')
-4. Topsy::Base.linkpostcount('barackobama')
-5. Topsy::Base.urlinfo('http://www.aycron.com')
-6. Topsy::Base.stats('http://www.aycron.com')
+<ol>
+<li>Topsy::Base.authorinfo('barackobama')</li>
+<li>Topsy::Base.authorsearch('programming','a')</li>
+<li>Topsy::Base.authorsearch('programming')</li>
+<li>Topsy::Base.linkposts('barackobama',page_number,per_page)</li>
+<li>Topsy::Base.linkposts('barackobama')</li>
+<li>Topsy::Base.linkpostcount('barackobama')</li>
+<li>Topsy::Base.urlinfo('http://www.aycron.com')</li>
+<li>Topsy::Base.stats('http://www.aycron.com')</li>
+</ol>
+</p>
 
 == SYNOPSIS:
 
