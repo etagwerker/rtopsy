@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Topsy::Base</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Topsy::Base</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/rtopsy/base_rb.html">
+                lib/rtopsy/base.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+provides all methods to the <a href="../Topsy.html">Topsy</a> API
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000008">authorinfo</a>&nbsp;&nbsp;
+      <a href="#M000009">authorsearch</a>&nbsp;&nbsp;
+      <a href="#M000007">get_response</a>&nbsp;&nbsp;
+      <a href="#M000011">linkpostcount</a>&nbsp;&nbsp;
+      <a href="#M000010">linkposts</a>&nbsp;&nbsp;
+      <a href="#M000013">search</a>&nbsp;&nbsp;
+      <a href="#M000014">stats</a>&nbsp;&nbsp;
+      <a href="#M000012">urlinfo</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">HTTParty</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="#M000008" class="method-signature">
+          <span class="method-name">authorinfo</span><span class="method-args">(twitter_nick)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns the author info object according to the twitter url author_handle:
+eg. barackobama
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/rtopsy/base.rb, line 26</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">authorinfo</span>(<span class="ruby-identifier">twitter_nick</span>)
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">get_response</span>(<span class="ruby-node">&quot;/authorinfo.json?url=http://twitter.com/#{twitter_nick}&quot;</span>)
+      <span class="ruby-constant">Author</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">resp</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">authorsearch</span><span class="method-args">(query = '', window = 'a')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Page.html">Page</a> of results with a list of <a
+href="Author.html">Author</a> instances who talk most about the query
+parameter
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/rtopsy/base.rb, line 33</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">authorsearch</span>(<span class="ruby-identifier">query</span> = <span class="ruby-value str">''</span>, <span class="ruby-identifier">window</span> = <span class="ruby-value str">'a'</span>)
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">get_response</span>(<span class="ruby-node">&quot;/authorsearch.json?q=#{query}&amp;window=#{window}&quot;</span>)
+      <span class="ruby-constant">Page</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">resp</span>, <span class="ruby-identifier">:author</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">get_response</span><span class="method-args">(api_request)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+performs a HTTParty get returns the response hash
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/rtopsy/base.rb, line 19</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_response</span>(<span class="ruby-identifier">api_request</span>)
+      <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">api_request</span>)  
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value str">&quot;response&quot;</span>]
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">linkpostcount</span><span class="method-args">(twitter_nick = '')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="LinkpostCount.html">LinkpostCount</a> for a nick
+twitter_nick: eg. barackobama
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/rtopsy/base.rb, line 49</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">linkpostcount</span>(<span class="ruby-identifier">twitter_nick</span> = <span class="ruby-value str">''</span>)
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">get_response</span>(<span class="ruby-node">&quot;/linkpostcount.json?url=http://twitter.com/#{twitter_nick}&quot;</span>)
+      <span class="ruby-constant">LinkpostCount</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">resp</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="#M000010" class="method-signature">
+          <span class="method-name">linkposts</span><span class="method-args">(twitter_nick = '', page = '1', perpage = '10')</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Page.html">Page</a> of results with a list of <a
+href="Linkpost.html">Linkpost</a> instances twitter_nick: eg. barackobama
+page: eg. 1 perpage: eg. 12
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/rtopsy/base.rb, line 42</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">linkposts</span>(<span class="ruby-identifier">twitter_nick</span> = <span class="ruby-value str">''</span>, <span class="ruby-identifier">page</span> = <span class="ruby-value str">'1'</span>, <span class="ruby-identifier">perpage</span> = <span class="ruby-value str">'10'</span>)
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">get_response</span>(<span class="ruby-node">&quot;/linkposts.json?url=http://twitter.com/#{twitter_nick}&amp;page=#{page}&amp;perpage=#{perpage}&quot;</span>)
+      <span class="ruby-constant">Page</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">resp</span>, <span class="ruby-identifier">:link_post</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="#M000013" class="method-signature">
+          <span class="method-name">search</span><span class="method-args">(query = '', window = :auto, page = 1, perpage = 10)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Page.html">Page</a> of results with a list of <a
+href="LinkSearchResult.html">LinkSearchResult</a> returns nil if the window
+parameter is not correct
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/rtopsy/base.rb, line 63</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">query</span> = <span class="ruby-value str">''</span>, <span class="ruby-identifier">window</span> = <span class="ruby-identifier">:auto</span>, <span class="ruby-identifier">page</span> = <span class="ruby-value">1</span>, <span class="ruby-identifier">perpage</span> = <span class="ruby-value">10</span>)
+      <span class="ruby-keyword kw">if</span> [<span class="ruby-identifier">:auto</span>, <span class="ruby-identifier">:h</span>, <span class="ruby-identifier">:d</span>, <span class="ruby-identifier">:w</span>, <span class="ruby-identifier">:m</span>, <span class="ruby-identifier">:a</span>].<span class="ruby-identifier">include?</span> <span class="ruby-identifier">window</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">get_response</span>(<span class="ruby-node">&quot;/search.json?q=#{query}&amp;window=#{window}&amp;page=#{page}&amp;perpage=#{perpage}&quot;</span>)
+        <span class="ruby-constant">Page</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">resp</span>, <span class="ruby-identifier">:link_search_result</span>)
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-keyword kw">end</span>      
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">stats</span><span class="method-args">(url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="Stats.html">Stats</a> instance for a certain url url:
+eg. <a href="http://aycron.com">aycron.com</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/rtopsy/base.rb, line 74</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">stats</span>(<span class="ruby-identifier">url</span>)
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">get_response</span>(<span class="ruby-node">&quot;/stats.json?url=#{url}&quot;</span>)
+      <span class="ruby-constant">Stats</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">resp</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">urlinfo</span><span class="method-args">(url)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+returns a <a href="UrlInfo.html">UrlInfo</a> instance for a certain url
+url: eg. <a href="http://aycron.com">aycron.com</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/rtopsy/base.rb, line 56</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">urlinfo</span>(<span class="ruby-identifier">url</span>)
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">get_response</span>(<span class="ruby-node">&quot;/urlinfo.json?url=#{url}&quot;</span>)
+      <span class="ruby-constant">UrlInfo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">resp</span>)
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
