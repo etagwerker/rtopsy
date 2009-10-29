@@ -6,7 +6,7 @@
 # According to the official Topsy doc: http://code.google.com/p/otterapi/wiki/Resources?tm=6#/linkpostcount
 #
 # For complete documentation on the options, check out the topsy api docs.
-#   http://groups.google.com/group/ruby-topsy/web/api-documentation
+#   http://groups.google.com/group/rtopsy
 module Topsy
   
   class LinkpostCount
