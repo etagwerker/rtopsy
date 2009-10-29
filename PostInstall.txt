@@ -1,5 +1,5 @@
 
-For more information on topsy, see http://topsy.rubyforge.org
+For more information on topsy, see http://github.com/etagwerker/rtopsy/
 
 NOTE: Change this information in PostInstall.txt 
 You can also delete it if you don't want it.

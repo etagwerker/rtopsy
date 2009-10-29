@@ -1,6 +1,6 @@
-= topsy
+= rtopsy
 
-* http://github.com/etagwerker/topsy
+* http://github.com/etagwerker/rtopsy
 
 == DESCRIPTION:
 
