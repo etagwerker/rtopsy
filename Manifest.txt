@@ -3,9 +3,9 @@ Manifest.txt
 PostInstall.txt
 README.rdoc
 Rakefile
-lib/topsy.rb
+lib/rtopsy.rb
 script/console
 script/destroy
 script/generate
 test/test_helper.rb
-test/test_topsy.rb
+test/test_rtopsy.rb
