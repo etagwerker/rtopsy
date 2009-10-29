@@ -4,11 +4,19 @@
 
 == DESCRIPTION:
 
-FIX (describe your package)
+A ruby gem implementation of the Topsy API
 
-== FEATURES/PROBLEMS:
+== FEATURES:
 
-* FIX (list of features or problems)
+rtopsy won't do your laundry, but it will do this:
+1. Topsy::Base.authorinfo('barackobama')
+2. Topsy::Base.authorsearch('programming','a')
+Topsy::Base.authorsearch('programming')
+3. Topsy::Base.linkposts('barackobama',page_number,per_page)
+Topsy::Base.linkposts('barackobama')
+4. Topsy::Base.linkpostcount('barackobama')
+5. Topsy::Base.urlinfo('http://www.aycron.com')
+6. Topsy::Base.stats('http://www.aycron.com')
 
 == SYNOPSIS:
 
@@ -16,17 +24,24 @@ FIX (describe your package)
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+I still need to develop this:
+# /profilesearch
+# /related
+# /search
+# /searchcount
+# /tags
+# /trackbacks
+# /trending
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* NOT READY FOR THIS YET!!! (still developing this gem)
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 FIXME full name
+Copyright (c) 2009 Ernesto Tagwerker <etagwerker@aycron.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
