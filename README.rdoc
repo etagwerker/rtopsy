@@ -18,7 +18,13 @@ rtopsy won't do your laundry, but it will do this:
 7. Topsy::Base.urlinfo('http://www.aycron.com')
 8. Topsy::Base.stats('http://www.aycron.com')
 9. Topsy::Base.search('rock',window,page_number,perpage) #window can be :auto, :h, :d, :w, :m, :a
-10. Topsy::Base.search('rock') #defaults window :auto, page_number 1, perpage 10 
+10. Topsy::Base.search('rock') #defaults window :auto, page_number 1, perpage 10
+11. Topsy::Base.searchcount('rock')
+12. Topsy::Base.search('rock')
+13. Topsy::Base.profilesearch('Aycron+Director') 
+14. Topsy::Base.profilesearch('Aycron+Director', page_number, perpage)
+15. Topsy::Base.related('http://www.hashrocket.com')
+16. Topsy::Base.related('http://www.google.com/', page_number, perpage)
 
 == SYNOPSIS:
 
@@ -27,10 +33,6 @@ rtopsy won't do your laundry, but it will do this:
 == REQUIREMENTS:
 
 I still need to develop this:
-# /profilesearch
-# /related
-# /search
-# /searchcount
 # /tags
 # /trackbacks
 # /trending
