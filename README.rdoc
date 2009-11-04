@@ -17,7 +17,7 @@ rtopsy won't do your laundry, but it will do this:
 6. Topsy::Base.linkpostcount('barackobama')
 7. Topsy::Base.urlinfo('http://www.aycron.com')
 8. Topsy::Base.stats('http://www.aycron.com')
-9. Topsy::Base.search('rock',:m,page_number,perpage)
+9. Topsy::Base.search('rock',window,page_number,perpage) #window can be :auto, :h, :d, :w, :m, :a
 10. Topsy::Base.search('rock') #defaults window :auto, page_number 1, perpage 10 
 
 == SYNOPSIS:

@@ -6,6 +6,7 @@ $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
 require 'rtopsy/link_search_result'
+require 'rtopsy/search_count'
 require 'rtopsy/linkpost_count'
 require 'rtopsy/author'
 require 'rtopsy/url_info'
