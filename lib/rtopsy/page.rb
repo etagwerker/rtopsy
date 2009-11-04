@@ -26,7 +26,7 @@ module Topsy
       end
       return result
     end
-
+    
     #converts a list of Hash objects into Linkpost objects
     def get_linkposts_list(hash_list)
       result = []
@@ -45,6 +45,24 @@ module Topsy
       return result
     end
     
+    #converts a list of Hash objects into Tag objects
+    def get_tags_list(hash_list)
+      result = []
+      for hash in hash_list
+        result << Tag.new(hash)
+      end
+      return result
+    end
+    
+    #converts a list of Hash objects into Trend objects
+    def get_trends_list(hash_list)
+      result = []
+      for hash in hash_list
+        result << Trend.new(hash)
+      end
+      return result
+    end
+    
     #creates a Page instance from a hash, setting attributes and a list of Author instances
     #for the page
     def initialize(hash, content_type)
@@ -54,6 +72,10 @@ module Topsy
             instance_variable_set("@#{key}", get_authors_list(value))  
           elsif content_type == :link_post
             instance_variable_set("@#{key}", get_linkposts_list(value))
+          elsif content_type == :tag
+            instance_variable_set("@#{key}", get_tags_list(value))
+          elsif content_type == :trend
+            instance_variable_set("@#{key}", get_trends_list(value))
           else
             instance_variable_set("@#{key}", get_linksearchresult_list(value))
           end

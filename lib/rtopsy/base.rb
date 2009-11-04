@@ -30,14 +30,14 @@ module Topsy
    
     #returns a Page of results with a list of Author instances that match the nick, name and biography info
     #parameter query eg. Barack+Obama (see: http://code.google.com/p/otterapi/wiki/QuerySyntax)
-    def self.profilesearch(query = '', page = '1', perpage = '10')
+    def self.profilesearch(query = '', page = 1, perpage = 10)
       resp = get_response("/profilesearch.json?q=#{query}&page=#{page}&perpage=#{perpage}")
       Page.new(resp, :author)
     end
    
     #returns a Page of results with a list of Author instances that talk about the query parameter
     #who talk most about the query parameter (see: http://code.google.com/p/otterapi/wiki/QuerySyntax)
-    def self.authorsearch(query = '', window = 'a', page = '1', perpage = '10')
+    def self.authorsearch(query = '', window = 'a', page = 1, perpage = 10)
       resp = get_response("/authorsearch.json?q=#{query}&window=#{window}&page=#{page}&perpage=#{perpage}")
       Page.new(resp, :author)
     end
@@ -46,7 +46,7 @@ module Topsy
     #twitter_nick: eg. barackobama
     #page: eg. 1
     #perpage: eg. 12
-    def self.linkposts(twitter_nick = '', page = '1', perpage = '10')
+    def self.linkposts(twitter_nick = '', page = 1, perpage = 10)
       resp = get_response("/linkposts.json?url=http://twitter.com/#{twitter_nick}&page=#{page}&perpage=#{perpage}")
       Page.new(resp, :link_post)
     end
@@ -66,19 +66,25 @@ module Topsy
     end
     
     # returns a Page of results with a list of LinkSearchResult
-    # if query is nil or empty, returns nil
-    # if query doesn't end with '/' (eg. http://www.google.com) it adds it to the end to normalize the url   
-    def self.related(query = '', page = 1, perpage = 10)
-      if !query
+    # if url is nil or empty, returns nil
+    # if url doesn't end with '/' (eg. http://www.google.com) it adds it to the end to normalize the url   
+    def self.related(url = '', page = 1, perpage = 10)
+      if !url
         return nil
       end
       
-      if query[query.length-1, query.length] != '/'
-        query = query + "/"
-      end
-      
-      resp = get_response("/related.json?url=#{query}&page=#{page}&perpage=#{perpage}")
+      url = normalize_url(url)
+
+      resp = get_response("/related.json?url=#{url}&page=#{page}&perpage=#{perpage}")
       Page.new(resp, :link_search_result)      
+    end
+    
+    # adds a trailing '/' to the string if necessary
+    def self.normalize_url(url)
+      if url[url.length-1, url.length] != '/'
+        url = url + "/"
+      end      
+      return url
     end
     
     # returns a SearchCount instance initialized with the response
@@ -98,13 +104,24 @@ module Topsy
       end      
     end
     
-    
-    
     #returns a Stats instance for a certain url
     #url: eg. http://aycron.com
     def self.stats(url)
       resp = get_response("/stats.json?url=#{url}")
       Stats.new(resp)
+    end
+    
+    # returns a Page of results with a list of Tag 
+    def self.tags(url, page = 1, perpage = 10)
+      url = normalize_url(url)
+      resp = get_response("/tags.json?url=#{url}&page=#{page}&perpage=#{perpage}")
+      Page.new(resp, :tag)      
+    end
+
+    # returns a Page of results with a list of Trend 
+    def self.trending(page = 1, perpage = 10)
+      resp = get_response("/trending.json?page=#{page}&perpage=#{perpage}")
+      Page.new(resp, :trend)      
     end
 
   end

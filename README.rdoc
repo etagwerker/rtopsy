@@ -25,6 +25,10 @@ rtopsy won't do your laundry, but it will do this:
 14. Topsy::Base.profilesearch('Aycron+Director', page_number, perpage)
 15. Topsy::Base.related('http://www.hashrocket.com')
 16. Topsy::Base.related('http://www.google.com/', page_number, perpage)
+17. Topsy::Base.tags('http://twitter.com', page_number, perpage)
+18. Topsy::Base.tags('http://twitter.com')
+19. Topsy::Base.trending(page_number, perpage)
+20. Topsy::Base.trending # defaults page_number 1, perpage 10
 
 == SYNOPSIS:
 
@@ -33,9 +37,7 @@ rtopsy won't do your laundry, but it will do this:
 == REQUIREMENTS:
 
 I still need to develop this:
-# /tags
 # /trackbacks
-# /trending
 
 == INSTALL:
 

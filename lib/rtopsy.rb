@@ -5,6 +5,8 @@ require 'HTTParty'
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
+require 'rtopsy/trend'
+require 'rtopsy/tag'
 require 'rtopsy/link_search_result'
 require 'rtopsy/search_count'
 require 'rtopsy/linkpost_count'
