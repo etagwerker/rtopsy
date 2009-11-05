@@ -29,15 +29,11 @@ rtopsy won't do your laundry, but it will do this:
 18. Topsy::Base.tags('http://twitter.com')
 19. Topsy::Base.trending(page_number, perpage)
 20. Topsy::Base.trending # defaults page_number 1, perpage 10
-
-== SYNOPSIS:
-
-  FIX (code sample of usage)
+21. Topsy::Base.trackbacks('http://twitter.com', tracktype, contains_string, infonly_flag, page_number, perpage)
 
 == REQUIREMENTS:
 
-I still need to develop this:
-# /trackbacks
+TODO list here: http://etagwerker.tadalist.com/lists/1436401/public
 
 == INSTALL:
 

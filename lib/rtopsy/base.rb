@@ -118,6 +118,13 @@ module Topsy
       Page.new(resp, :tag)      
     end
 
+    # returns a Page of results with a list of Tweet 
+    def self.trackbacks(url = '', tracktype = 'tweet', contains = '', infonly = 0, page = 1, perpage = 10)
+      url = normalize_url(url)
+      resp = get_response("/trackbacks.json?url=#{url}&tracktype=#{tracktype}&infonly=#{infonly}&contains=#{contains}&page=#{page}&perpage=#{perpage}")
+      Page.new(resp, :tweet)        
+    end
+
     # returns a Page of results with a list of Trend 
     def self.trending(page = 1, perpage = 10)
       resp = get_response("/trending.json?page=#{page}&perpage=#{perpage}")
