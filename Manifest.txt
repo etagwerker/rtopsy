@@ -6,8 +6,8 @@ PostInstall.txt
 README.rdoc
 Rakefile
 lib/rtopsy.rb
+lib/rtopsy/api.rb
 lib/rtopsy/author.rb
-lib/rtopsy/base.rb
 lib/rtopsy/link_search_result.rb
 lib/rtopsy/linkpost.rb
 lib/rtopsy/linkpost_count.rb
