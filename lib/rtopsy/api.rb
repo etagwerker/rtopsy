@@ -6,7 +6,7 @@
 module Topsy
   
   #provides all methods to the Topsy API
-  class Base
+  class API
     include HTTParty
       
     base_uri 'http://otter.topsy.com'
