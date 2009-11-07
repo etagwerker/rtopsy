@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ernesto Tagwerker"]
-  s.date = %q{2009-10-28}
+  s.date = %q{2009-11-06}
   s.description = %q{A ruby gem implementation of the Topsy API}
   s.email = ["etagwerker@aycron.com"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt", "PostInstall.txt"]
