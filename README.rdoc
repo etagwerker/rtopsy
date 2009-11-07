@@ -9,27 +9,27 @@ A ruby gem implementation of the Topsy API
 == FEATURES:
 
 rtopsy won't do your laundry, but it will do this:
-1. Topsy::Base.authorinfo('barackobama')
-2. Topsy::Base.authorsearch('programming','a')
-3. Topsy::Base.authorsearch('programming')
-4. Topsy::Base.linkposts('barackobama',page_number,per_page)
-5. Topsy::Base.linkposts('barackobama')
-6. Topsy::Base.linkpostcount('barackobama')
-7. Topsy::Base.urlinfo('http://www.aycron.com')
-8. Topsy::Base.stats('http://www.aycron.com')
-9. Topsy::Base.search('rock',window,page_number,perpage) #window can be :auto, :h, :d, :w, :m, :a
-10. Topsy::Base.search('rock') #defaults window :auto, page_number 1, perpage 10
-11. Topsy::Base.searchcount('rock')
-12. Topsy::Base.search('rock')
-13. Topsy::Base.profilesearch('Aycron+Director') 
-14. Topsy::Base.profilesearch('Aycron+Director', page_number, perpage)
-15. Topsy::Base.related('http://www.hashrocket.com')
-16. Topsy::Base.related('http://www.google.com/', page_number, perpage)
-17. Topsy::Base.tags('http://twitter.com', page_number, perpage)
-18. Topsy::Base.tags('http://twitter.com')
-19. Topsy::Base.trending(page_number, perpage)
-20. Topsy::Base.trending # defaults page_number 1, perpage 10
-21. Topsy::Base.trackbacks('http://twitter.com', tracktype, contains_string, infonly_flag, page_number, perpage)
+1. Topsy::API.authorinfo('barackobama')
+2. Topsy::API.authorsearch('programming','a')
+3. Topsy::API.authorsearch('programming')
+4. Topsy::API.linkposts('barackobama',page_number,per_page)
+5. Topsy::API.linkposts('barackobama')
+6. Topsy::API.linkpostcount('barackobama')
+7. Topsy::API.urlinfo('http://www.aycron.com')
+8. Topsy::API.stats('http://www.aycron.com')
+9. Topsy::API.search('rock',window,page_number,perpage) #window can be :auto, :h, :d, :w, :m, :a
+10. Topsy::API.search('rock') #defaults window :auto, page_number 1, perpage 10
+11. Topsy::API.searchcount('rock')
+12. Topsy::API.search('rock')
+13. Topsy::API.profilesearch('Aycron+Director') 
+14. Topsy::API.profilesearch('Aycron+Director', page_number, perpage)
+15. Topsy::API.related('http://www.hashrocket.com')
+16. Topsy::API.related('http://www.google.com/', page_number, perpage)
+17. Topsy::API.tags('http://twitter.com', page_number, perpage)
+18. Topsy::API.tags('http://twitter.com')
+19. Topsy::API.trending(page_number, perpage)
+20. Topsy::API.trending # defaults page_number 1, perpage 10
+21. Topsy::API.trackbacks('http://twitter.com', tracktype, contains_string, infonly_flag, page_number, perpage)
 
 == REQUIREMENTS:
 
@@ -37,7 +37,11 @@ TODO list here: http://etagwerker.tadalist.com/lists/1436401/public
 
 == INSTALL:
 
-* NOT READY FOR THIS YET!!! (still developing this gem)
+rtopsy uses http://gemcutter.org/
+
+1. gem install gemcutter # if necessary
+2. gem tumble # if necessary
+3. gem install rtopsy # which will use the gemcutter repository
 
 == LICENSE:
 
