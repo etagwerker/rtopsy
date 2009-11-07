@@ -5,7 +5,6 @@ require 'HTTParty'
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
-require 'rtopsy/tweet'
 require 'rtopsy/trend'
 require 'rtopsy/tag'
 require 'rtopsy/link_search_result'
@@ -18,6 +17,7 @@ require 'rtopsy/linkpost'
 require 'rtopsy/base'
 require 'rtopsy/page'
 require 'rtopsy/target'
+require 'rtopsy/tweet'
 
 module Topsy
   VERSION = '0.0.1'
