@@ -20,5 +20,5 @@ require 'rtopsy/target'
 require 'rtopsy/tweet'
 
 module Topsy
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
 end
