@@ -2,6 +2,15 @@
 
 * http://github.com/etagwerker/rtopsy
 
+== IMPORTANT:
+
+I am no longer maintaining this gem. I am now maintaining http://github.com/pengwynn/topsy
+
+That is a better version of the rtopsy gem. A few improvements it has:
+* Tests for every method
+* More documentation and examples
+* Methods accept pagination options in a hash 
+
 == DESCRIPTION:
 
 A ruby gem implementation of the Topsy API
